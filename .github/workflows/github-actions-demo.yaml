@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-and-test:
-    runs-on: ubuntu:latest
+    runs-on: ubuntu-latest
     steps:
       - name: Check out repo code
         uses: actions/checkout@v4
@@ -18,12 +18,12 @@ jobs:
           python-version: '3.12'
 
       - name: Install Dependencies
-        run:
+        run: |
           python -m pip install --upgrade pip
           pip install -e .
 
       - name: Lint with flake8
-        run:
+        run: |
           # Stop the build if there are Python syntax errors or undefined names
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
 
